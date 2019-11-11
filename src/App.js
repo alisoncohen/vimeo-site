@@ -4,10 +4,12 @@ import image2 from './assets/image-2.jpg';
 import image3 from './assets/image-3.jpg';
 import Section from './section.js';
 import classNames from 'classnames';
+import Carousel from './carousel.js';
 import './App.scss';
 
 let text =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt ipsum augue. In faucibus vehicula magna pulvinar aliquam. Cras aliquam feugiat lorem non auctor. Quisque sed lorem egestas mauris venenatis commodo eu id nibh. Ut porta libero sed semper faucibus.';
+
 let lightSections = [
   {
     isTextOnRight: true,
@@ -45,6 +47,7 @@ export default class App extends Component {
             <Section section={section}></Section>
           ))}
         </div>
+        <Carousel />
       </div>
     );
   }
