@@ -9,23 +9,25 @@ export default class CarouselSlide extends React.Component {
     return (
       <div className="info">
         <img src={slideInfo.image} className="main_img" />
-        <div className="text">
-          <h1>{slideInfo.title}</h1>
-          <p className="description">{slideInfo.description}</p>
-          <div className="buttons">
-            <button
-              type="button"
-              className="buy_now_btn"
-              style={{ backgroundColor: slideInfo.color }}
-            >
-              <div>
-                <PlayButton className="play_button_icon" />
-              </div>
-              Buy Now
-            </button>
-            <button type="button" className="watch_trailer_btn">
-              Watch Trailer
-            </button>
+        <div className="text_container">
+          <div className="text">
+            <h1>{slideInfo.title}</h1>
+            <p className="description">{slideInfo.description}</p>
+            <div className="buttons">
+              <button
+                type="button"
+                className="buy_now_btn"
+                style={{ backgroundColor: slideInfo.color }}
+              >
+                <div>
+                  <PlayButton className="play_button_icon" />
+                </div>
+                Buy Now
+              </button>
+              <button type="button" className="watch_trailer_btn">
+                Watch Trailer
+              </button>
+            </div>
           </div>
         </div>
       </div>

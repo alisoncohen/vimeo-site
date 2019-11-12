@@ -119,7 +119,7 @@ button {
   }
 }
 .description {
-  color: #bebebe;
+  color: #dcdcdc;
 }
 
 @media (max-width: 1400px) {
@@ -131,5 +131,9 @@ button {
 @media (max-width: 950px) {
   .main_img {
     display: none;
+  }
+  .text {
+    position: absolute;
+    top: 120px;
   }
 }

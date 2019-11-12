@@ -40,3 +40,9 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
   display: flex;
 }
+
+@media (max-width: 950px) {
+  .arrow {
+    width: 20px;
+  }
+}

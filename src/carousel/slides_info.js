@@ -2,6 +2,7 @@ import huntForTheWilderpeopleImg from '../assets/hunt_for_the_wilderpeople.jpg';
 import nichtsPassiertImg from '../assets/nichts_passiert.jpg';
 import viceVersaImg from '../assets/vice_versa.png';
 import theFourthPhaseImg from '../assets/the_fourth_phase.jpg';
+import fullMoonImg from '../assets/full_moon.jpg';
 
 const slides = [
   {
@@ -34,6 +35,14 @@ const slides = [
       'Come along with the Good Company crew as they travel throughout the US, Japan, BC and Quebec to showcase skiing in the best way possible.',
     image: theFourthPhaseImg,
     color: '#4377A6',
+    darken: true,
+  },
+  {
+    title: 'Full Moon',
+    description:
+      'Come along with the Good Company crew as they travel throughout the US, Japan, BC and Quebec to showcase skiing in the best way possible.',
+    image: fullMoonImg,
+    color: '#858585',
     darken: true,
   },
 ];
