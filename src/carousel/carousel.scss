@@ -1,0 +1,42 @@
+.carousel {
+  height: 100vh;
+  background: grey;
+  position: relative;
+
+  .arrow {
+    z-index: 100;
+    position: absolute;
+    cursor: pointer;
+    width: 40px;
+    fill: white;
+    top: 50%;
+    margin-top: -20px;
+    &:hover {
+      fill: #4fa0e1;
+    }
+  }
+  .prev_arrow {
+    left: 10vw;
+  }
+  .next_arrow {
+    right: 10vw;
+  }
+}
+
+.container {
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+  display: flex;
+}

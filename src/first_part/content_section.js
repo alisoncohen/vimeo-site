@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Section = props =>
+const ContentSection = props =>
   props.section.isTextOnRight ? (
     <div className="section">
       <img
@@ -23,4 +23,4 @@ const Section = props =>
     </div>
   );
 
-export default Section;
+export default ContentSection;
