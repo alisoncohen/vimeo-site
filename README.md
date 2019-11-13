@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Note
+
+The first section is at the top, then scroll for the carousel that matches the video, followed by a second carousel using the vimeo API.
+
 ## Available Scripts
 
 In the project directory, you can run:

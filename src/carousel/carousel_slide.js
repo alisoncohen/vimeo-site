@@ -6,16 +6,20 @@ import "./slide.scss";
 export default class CarouselSlide extends React.Component {
   calcDescription() {
     const { description } = this.props.slideInfo;
-    if (description.length > 400) {
-      return description.substring(0, 400) + "...";
-    }
-    return description;
+    return description.length > 400
+      ? description.substring(0, 400) + "..."
+      : description;
   }
+
   renderInfo() {
     const { image, title, color, buyLink, trailerLink } = this.props.slideInfo;
     return (
       <div className="info">
-        <img src={image} className="main_img" />
+        <img
+          src={image}
+          className="main_img"
+          alt={`Movie poster for ${title}`}
+        />
         <div className="text_container">
           <div className="text">
             <h1>{title}</h1>
@@ -27,9 +31,7 @@ export default class CarouselSlide extends React.Component {
                   className="buy_now_btn"
                   style={{ backgroundColor: color }}
                 >
-                  <div>
-                    <PlayButton className="play_button_icon" />
-                  </div>
+                  <PlayButton className="play_button_icon" />
                   Buy Now
                 </button>
               </a>
@@ -64,12 +66,7 @@ export default class CarouselSlide extends React.Component {
 
   render() {
     const { position } = this.props;
-    const className = classNames(
-      "slide",
-      { ["off_stage_left"]: position === "offStageLeft" },
-      { ["off_stage_right"]: position === "offStageRight" },
-      { ["on_stage"]: position === "onStage" }
-    );
+    const className = classNames("slide", position);
     return (
       <div className={className}>
         {this.renderBackground()}

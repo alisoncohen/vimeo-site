@@ -5,7 +5,7 @@ import { ReactComponent as NextImg } from "../assets/next.svg";
 import { ReactComponent as PrevImg } from "../assets/back.svg";
 import classNames from "classnames";
 
-class Carousel extends React.Component {
+export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,26 +17,25 @@ class Carousel extends React.Component {
 
   prev() {
     const { slides } = this.props;
-    const lastIndex = slides.length - 1;
     const { currentIndex } = this.state;
-    const index = currentIndex === 0 ? lastIndex : currentIndex - 1;
+    const index = (currentIndex - 1) % slides.length;
     this.setState({ currentIndex: index });
   }
 
   next() {
     const { slides } = this.props;
-    const lastIndex = slides.length - 1;
     const { currentIndex } = this.state;
-    const index = currentIndex === lastIndex ? 0 : currentIndex + 1;
+    const index = (currentIndex + 1) % slides.length;
     this.setState({ currentIndex: index });
   }
 
   render() {
     const { slides } = this.props;
+    const { currentIndex } = this.state;
     return (
       <div
         className="carousel"
-        style={{ background: slides[this.state.currentIndex].image }}
+        style={{ background: slides[currentIndex].image }}
       >
         <PrevImg
           onClick={this.boundPrev}
@@ -46,12 +45,8 @@ class Carousel extends React.Component {
           onClick={this.boundNext}
           className={classNames("arrow", "next_arrow")}
         />
-        <div className="container">
-          <Stage slides={slides} currentIndex={this.state.currentIndex} />
-        </div>
+        <Stage slides={slides} currentIndex={currentIndex} />
       </div>
     );
   }
 }
-
-export default Carousel;

@@ -1,7 +1,6 @@
 import React from "react";
-import Carousel from "./carousel";
 
-export default class CarouselWrapper extends React.Component {
+export default class DataFetcher extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true, error: null, slides: null };
@@ -32,7 +31,7 @@ export default class CarouselWrapper extends React.Component {
           image: item.pictures.sizes[6].link,
           color: item.colors.primary,
           secondaryColor: item.colors.primary,
-          darken: false,
+          darken: true,
           buyLink: item.link,
           trailerLink: item.trailer.link
         }));
@@ -42,9 +41,8 @@ export default class CarouselWrapper extends React.Component {
       this.setState({ isLoading: false, error: ex });
     }
   }
+
   render() {
-    return this.state.isLoading ? null : (
-      <Carousel slides={this.state.slides} />
-    );
+    return this.state.isLoading ? null : this.props.children(this.state.slides);
   }
 }

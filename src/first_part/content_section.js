@@ -1,26 +1,28 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
 
-const ContentSection = props =>
-  props.section.isTextOnRight ? (
+export default function ContentSection({ section }) {
+  const { title, text, image, isTextOnRight } = section;
+
+  return isTextOnRight ? (
     <div className="section">
       <img
-        src={props.section.image}
-        className={classNames('left_section', 'left_image')}
+        src={image}
+        alt={`${title}`}
+        className={classNames("left_section", "left_image")}
       ></img>
-      <div className={classNames('right_text_section', 'right_section')}>
-        <h1>{props.section.title}</h1>
-        <p>{props.section.text}</p>
+      <div className={classNames("right_text_section", "right_section")}>
+        <h1>{title}</h1>
+        <p>{text}</p>
       </div>
     </div>
   ) : (
     <div className="section">
-      <div className={classNames('left_text_section', 'left_section')}>
-        <h1>{props.section.title}</h1>
-        <p>{props.section.text}</p>
+      <div className={classNames("left_text_section", "left_section")}>
+        <h1>{title}</h1>
+        <p>{text}</p>
       </div>
-      <img src={props.section.image} className={'right_section'}></img>
+      <img src={image} alt={`${title}`} className={"right_section"}></img>
     </div>
   );
-
-export default ContentSection;
+}
