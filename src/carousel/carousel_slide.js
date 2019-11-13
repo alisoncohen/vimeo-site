@@ -1,32 +1,43 @@
-import React from 'react';
-import classNames from 'classnames';
-import { ReactComponent as PlayButton } from '../assets/playbutton.svg';
-import './slide.scss';
+import React from "react";
+import classNames from "classnames";
+import { ReactComponent as PlayButton } from "../assets/playbutton.svg";
+import "./slide.scss";
 
 export default class CarouselSlide extends React.Component {
+  calcDescription() {
+    const { description } = this.props.slideInfo;
+    if (description.length > 700) {
+      return description.substring(0, 700) + "...";
+    }
+    return description;
+  }
   renderInfo() {
-    const { slideInfo } = this.props;
+    const { image, title, color, buyLink, trailerLink } = this.props.slideInfo;
     return (
       <div className="info">
-        <img src={slideInfo.image} className="main_img" />
+        <img src={image} className="main_img" />
         <div className="text_container">
           <div className="text">
-            <h1>{slideInfo.title}</h1>
-            <p className="description">{slideInfo.description}</p>
+            <h1>{title}</h1>
+            <p className="description">{this.calcDescription()}</p>
             <div className="buttons">
-              <button
-                type="button"
-                className="buy_now_btn"
-                style={{ backgroundColor: slideInfo.color }}
-              >
-                <div>
-                  <PlayButton className="play_button_icon" />
-                </div>
-                Buy Now
-              </button>
-              <button type="button" className="watch_trailer_btn">
-                Watch Trailer
-              </button>
+              <a href={buyLink ? buyLink : null}>
+                <button
+                  type="button"
+                  className="buy_now_btn"
+                  style={{ backgroundColor: color }}
+                >
+                  <div>
+                    <PlayButton className="play_button_icon" />
+                  </div>
+                  Buy Now
+                </button>
+              </a>
+              <a href={trailerLink ? trailerLink : buyLink ? buyLink : null}>
+                <button type="button" className="watch_trailer_btn">
+                  Watch Trailer
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -35,27 +46,29 @@ export default class CarouselSlide extends React.Component {
   }
 
   renderBackground() {
-    const { slideInfo } = this.props;
+    const { image, color, secondaryColor, darken } = this.props.slideInfo;
     return (
       <div className="background">
         <div
           className="background_image"
-          style={{ backgroundImage: `url(${slideInfo.image})` }}
+          style={{ backgroundImage: `url(${image})` }}
         />
-        <div className="tint" style={{ backgroundColor: slideInfo.color }} />
-        {slideInfo.darken ? <div className="darken" /> : null}
+        <div
+          className="tint"
+          style={{ backgroundColor: secondaryColor ? secondaryColor : color }}
+        />
+        {darken ? <div className="darken" /> : null}
       </div>
     );
   }
 
   render() {
     const { position } = this.props;
-    console.log(position);
     const className = classNames(
-      'slide',
-      { ['off_stage_left']: position === 'offStageLeft' },
-      { ['off_stage_right']: position === 'offStageRight' },
-      { ['on_stage']: position === 'onStage' }
+      "slide",
+      { ["off_stage_left"]: position === "offStageLeft" },
+      { ["off_stage_right"]: position === "offStageRight" },
+      { ["on_stage"]: position === "onStage" }
     );
     return (
       <div className={className}>
