@@ -19,16 +19,23 @@ export default class CarouselWrapper extends React.Component {
         headers: new Headers({ Authorization: `Bearer ${authToken}` })
       });
       const { data } = await rsp.json();
-      const slides = data.slice(0, 10).map(item => ({
-        name: item.name,
-        description: item.description,
-        image: item.pictures.sizes[6].link,
-        color: item.colors.primary,
-        secondaryColor: item.colors.primary,
-        darken: false,
-        buyLink: item.link,
-        trailerLink: item.trailer.link
-      }));
+      const slides = data
+        .filter(
+          item =>
+            item.name !==
+            "OH NO! IVOR THE DANCE KING AND SOME OF HIS FRIENDS TRY TO SAVE THE WORLD!!"
+        )
+        .slice(0, 10)
+        .map(item => ({
+          title: item.name,
+          description: item.description,
+          image: item.pictures.sizes[6].link,
+          color: item.colors.primary,
+          secondaryColor: item.colors.primary,
+          darken: false,
+          buyLink: item.link,
+          trailerLink: item.trailer.link
+        }));
 
       this.setState({ isLoading: false, slides });
     } catch (ex) {

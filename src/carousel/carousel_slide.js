@@ -6,8 +6,8 @@ import "./slide.scss";
 export default class CarouselSlide extends React.Component {
   calcDescription() {
     const { description } = this.props.slideInfo;
-    if (description.length > 700) {
-      return description.substring(0, 700) + "...";
+    if (description.length > 400) {
+      return description.substring(0, 400) + "...";
     }
     return description;
   }
