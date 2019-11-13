@@ -59,7 +59,7 @@ export default class CarouselSlide extends React.Component {
           className="tint"
           style={{ backgroundColor: secondaryColor ? secondaryColor : color }}
         />
-        {darken ? <div className="darken" /> : null}
+        <div className="darken" />
       </div>
     );
   }
