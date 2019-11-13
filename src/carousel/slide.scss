@@ -79,6 +79,13 @@
 .main_img {
   height: 500px;
   width: auto;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    white,
+    rgba(255, 0, 0, 0) 550px
+  );
+  mask-image: linear-gradient(to bottom, black, rgba(255, 0, 0, 0) 550px);
 }
 
 .buttons {
