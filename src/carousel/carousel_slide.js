@@ -48,7 +48,7 @@ export default class CarouselSlide extends React.Component {
   }
 
   renderBackground() {
-    const { image, color, secondaryColor, darken } = this.props.slideInfo;
+    const { image, color, secondaryColor } = this.props.slideInfo;
     return (
       <div className="background">
         <div
